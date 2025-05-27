@@ -70,44 +70,7 @@ The typical compilation process follows these stages:
 
     Concurrency: Supports true OS-level threads for CPU-bound tasks and lightweight coroutines for asynchronous I/O operations.
 
-6. Performance at a Glance
-
-Results from the "Longest Path" benchmark (run on an Intel Q9300 @ 2.5 GHz):
-
-Metric
-	
-
-Nim
-	
-
-C++
-
-Execution time
-	
-
-1400 ms
-	
-
-1478 ms
-
-Peak RAM
-	
-
-1460 KB
-	
-
-1460 KB
-
-Compressed source
-	
-
-486 B
-	
-
-865 B
-
-Nim demonstrated slightly better execution speed and significantly more compact source code while maintaining similar low memory usage compared to C++ in this specific benchmark.
-7. When to Pick Nim
+6. When to Pick Nim
 
 Consider using Nim when your project requires:
 
@@ -117,7 +80,7 @@ Consider using Nim when your project requires:
 
     A single codebase that can target native applications, command-line tools, and web browser (via JavaScript) without extensive rewrites.
 
-8. When to Skip Nim
+7. When to Skip Nim
 
 Nim might not be the best choice for projects that:
 
@@ -127,8 +90,8 @@ Nim might not be the best choice for projects that:
 
     Need to onboard many new developers quickly, especially if they are unfamiliar with Nim's more advanced concepts.
 
-9. Project Team
-
+8. Project Team Members 
+ 
     Min Myint Moh Soe
 
     Hpone Pyae Khine
