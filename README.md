@@ -1,5 +1,5 @@
 # Programming-Languages-Project
-Nim Programming Language – Project README Summary
+Nim Programming Language – Project 
 1 Overview
 
 Nim is a statically-typed, compiled language that tries to read like Python while running as fast as C/C++
