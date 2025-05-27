@@ -76,6 +76,7 @@ parse → semantic-check → macro-expand → optimize → C-emit → backend co
     .
 
 6 Performance at a Glance
+
 Longest Path benchmark (Intel Q9300 @ 2.5 GHz) showed:
 Metric	Nim	C++
 Exec time	1400 ms	1478 ms
@@ -85,10 +86,11 @@ Nim led in speed and code compactness while keeping memory low
 
 .
 7 When to Pick Nim
+
 Choose Nim when you need C-level speed, like clean readable code, and want one codebase that can target native apps, command-line tools, and browser JS without switch-rewriting.
-
 8 When to Skip
-Skip Nim for projects that rely on huge third-party ecosystems, demand iron-clad long-term ABI stability, or must onboard many new developers in a hurry.
 
+Skip Nim for projects that rely on huge third-party ecosystems, demand iron-clad long-term ABI stability, or must onboard many new developers in a hurry.
 9 Project Team
+
 Min Myint Moh Soe · Hpone Pyae Khine · Ahkar Min Oo 
