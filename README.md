@@ -1,95 +1,137 @@
 # Programming-Languages-Project
-Nim Programming Language – Project 
-1 Overview
+Nim Programming Language – Project
+1. Overview
 
-Nim is a statically-typed, compiled language that tries to read like Python while running as fast as C/C++
+Nim is a statically-typed, compiled language that aims to combine the readability of Python with the performance of C/C++.
+2. Origins
 
-.
-2 Origins
+    Early 2000s: Andreas Rumpf conceptualizes a language as readable as Python but as fast as C.
 
-    Early 2000s – Andreas Rumpf sketches a Python-fast-as-C idea.
+    2008: First public release under the name "Nimrod."
 
-    2008 – First public release as Nimrod.
+    2014: Renamed to "Nim." The language, its community, and tooling begin to mature.
 
-    2014 – Renamed to Nim; community and tooling mature 
+3. Key Strengths
 
-    .
+    Speed & Portability: Nim compiles to C, C++, or JavaScript. This allows the final compiled code to achieve performance comparable to hand-written C++ in benchmarks.
 
-3 Key Strengths
+    Powerful Macros: Compile-time Abstract Syntax Tree (AST) macros enable developers to build domain-specific mini-languages and reduce boilerplate code.
 
-    Speed & Portability – Compiles to C/C++/JS, so final code rivals hand-written C++ in benchmarks 
+    Flexible Memory Management: Offers a choice between tracing garbage collection (GC), reference counting, or manual pointer management. Custom memory allocators are also supported.
 
-.
+    Multi-Paradigm with Async Support: Supports imperative, object-oriented (OO), and functional programming styles. Built-in async/await coroutines simplify asynchronous I/O operations, leading to leaner code.
 
-Powerful Macros – Compile-time AST macros let you build domain-specific mini-languages and cut boilerplate
+4. Main Weaknesses
 
-.
+    Smaller Library Ecosystem: There are fewer readily available third-party packages compared to more established languages, which might mean more "do-it-yourself" work.
 
-Memory Choices – Mix tracing GC, reference counting, or manual ptr work; custom allocators allowed
+    Steeper Learning Curve: Features like macros and mixed memory management modes require dedicated study. Documentation can also be sparse in certain advanced areas.
 
-.
+    Evolving Language: The language specification and compiler are still undergoing changes. This means some existing code might break between new releases.
 
-Multi-Paradigm + Async – Imperative, OO, and functional styles live side-by-side; async/await coroutines make I/O code lean
-
-    .
-
-4 Main Weaknesses
-
-    Small Library Pool – Fewer ready-made packages; more DIY work 
-
-.
-
-Steep On-Ramp – Macros and mixed memory modes demand study; docs still thin in spots
-
-.
-
-Shifting Ground – Spec and compiler still change; some code may break between releases
-
-    .
-
-5 How Nim Works
+5. How Nim Works
 5.1 Syntax in a Nutshell
 
-    Python-style indent blocks or optional {} braces.
+    Uses Python-style indentation for code blocks, though optional {} braces are also supported.
 
-    var (mutable), let (immutable), const (compile-time).
+    Variable declarations:
 
-    Uniform Function Call Syntax lets any free function look like a method 
+        var: mutable variables
 
-    .
+        let: immutable variables
+
+        const: compile-time constants
+
+    Uniform Function Call Syntax (UFCS): Allows any free function to be called as if it were a method of its first argument (e.g., myString.len() can be used instead of len(myString)).
 
 5.2 Compilation Pipeline
 
-parse → semantic-check → macro-expand → optimize → C-emit → backend compile
+The typical compilation process follows these stages:
 
-.
+    Parse
+
+    Semantic Check
+
+    Macro Expansion
+
+    Optimization
+
+    C Code Emission (or C++/JavaScript)
+
+    Backend Compilation (using a C/C++ compiler like GCC, Clang, or an Emscripten for JS)
+
 5.3 Runtime Snapshot
 
-    Default deferred-ref-count GC with cycle detection.
+    Default Garbage Collector: Uses a deferred reference counting GC with cycle detection.
 
-    Manual memory and custom allocators for hot paths.
+    Manual Memory Management: Allows for manual memory control and custom allocators, particularly useful for performance-critical sections ("hot paths").
 
-    Zero-cost exceptions when nothing throws.
+    Zero-Cost Exceptions: Exceptions have no runtime overhead if they are not thrown.
 
-    True threads for CPU tasks; coroutines for async I/O 
+    Concurrency: Supports true OS-level threads for CPU-bound tasks and lightweight coroutines for asynchronous I/O operations.
 
-    .
+6. Performance at a Glance
 
-6 Performance at a Glance
-Longest Path benchmark (Intel Q9300 @ 2.5 GHz) showed:
-Metric	Nim	C++
-Exec time	1400 ms	1478 ms
-Peak RAM	1460 KB	1460 KB
-Compressed source	486 B	865 B
-Nim led in speed and code compactness while keeping memory low
+Results from the "Longest Path" benchmark (run on an Intel Q9300 @ 2.5 GHz):
 
-.
-7 When to Pick Nim
-Choose Nim when you need C-level speed, like clean readable code, and want one codebase that can target native apps, command-line tools, and browser JS without switch-rewriting.
+Metric
+	
 
-8 When to Skip
-Skip Nim for projects that rely on huge third-party ecosystems, demand iron-clad long-term ABI stability, or must onboard many new developers in a hurry.
+Nim
+	
 
-9 Project Team
-Min Myint Moh Soe · Hpone Pyae Khine · Ahkar Min Oo 
+C++
+
+Execution time
+	
+
+1400 ms
+	
+
+1478 ms
+
+Peak RAM
+	
+
+1460 KB
+	
+
+1460 KB
+
+Compressed source
+	
+
+486 B
+	
+
+865 B
+
+Nim demonstrated slightly better execution speed and significantly more compact source code while maintaining similar low memory usage compared to C++ in this specific benchmark.
+7. When to Pick Nim
+
+Consider using Nim when your project requires:
+
+    C-level performance.
+
+    Clean, readable code.
+
+    A single codebase that can target native applications, command-line tools, and web browser (via JavaScript) without extensive rewrites.
+
+8. When to Skip Nim
+
+Nim might not be the best choice for projects that:
+
+    Heavily rely on a vast ecosystem of third-party libraries.
+
+    Demand iron-clad long-term Application Binary Interface (ABI) stability.
+
+    Need to onboard many new developers quickly, especially if they are unfamiliar with Nim's more advanced concepts.
+
+9. Project Team
+
+    Min Myint Moh Soe
+
+    Hpone Pyae Khine
+
+    Ahkar Min Oo
 
